@@ -1,39 +1,25 @@
 import { selector } from 'recoil';
 
-import { todoListFilterState, todoListState } from './atoms';
+import { currentUserIDState } from './atoms';
 
-export const filteredTodoListState = selector({
-  key: 'filteredTodoListState',
-  get: ({ get }) => {
-    const filter = get(todoListFilterState);
-    const list = get(todoListState);
-
-    switch (filter) {
-      case 'Show Completed':
-        return list.filter(item => item.isComplete);
-      case 'Show Uncompleted':
-        return list.filter(item => !item.isComplete);
-      default:
-        return list;
-    }
+const tableOfUsers = [
+  {
+    id: 1,
+    name: 'Lucas Vinicius'
+  },
+  {
+    id: 2,
+    name: 'Vinicius Lucas'
+  },
+  {
+    id: 3,
+    name: 'Lucas'
   }
-});
+];
 
-export const todoListStatsState = selector({
-  key: 'todoListStatsState',
+export const currentUserNameState = selector({
+  key: 'CurrentUserName',
   get: ({ get }) => {
-    const todoList = get(todoListState);
-    const totalNum = todoList.length;
-    const totalCompletedNum = todoList.filter(item => item.isComplete).length;
-    const totalUncompletedNum = totalNum - totalCompletedNum;
-    const percentCompleted =
-      totalNum === 0 ? 0 : (totalCompletedNum / totalNum) * 100;
-
-    return {
-      totalNum,
-      totalCompletedNum,
-      totalUncompletedNum,
-      percentCompleted
-    };
+    return tableOfUsers[get(currentUserIDState)].name;
   }
 });
