@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { RecoilRoot } from 'recoil'
 
 import CurrentUserInfo from './src/CurrentUserInfo'
@@ -6,7 +6,9 @@ import CurrentUserInfo from './src/CurrentUserInfo'
 export default function App() {
   return (
     <RecoilRoot>
-      <CurrentUserInfo />
+      <Suspense fallback={<div>Loading...</div>}>
+        <CurrentUserInfo />
+      </Suspense>
     </RecoilRoot>
   );
 }
