@@ -5,15 +5,15 @@ import { currentUserIDState } from './atoms';
 const tableOfUsers = [
   {
     id: 1,
-    name: 'Lucas Vinicius'
+    name: 'Lucas'
   },
   {
     id: 2,
-    name: 'Vinicius Lucas'
+    name: 'Lucas Vinicius'
   },
   {
     id: 3,
-    name: 'Lucas'
+    name: 'Vinicius'
   }
 ];
 
