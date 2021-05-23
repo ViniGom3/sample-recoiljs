@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil'
 import TodoItemCreator from './TodoItemCreator'
 import TodoItem from './TodoItem'
 
-import { todoListState } from './todoListState'
+import { todoListState } from './atoms'
 
 export default function TodoList() {
   const todoList = useRecoilValue(todoListState);
