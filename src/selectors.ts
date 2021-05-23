@@ -2,24 +2,12 @@ import { selector } from 'recoil';
 
 import { currentUserIDState } from './atoms';
 
-const tableOfUsers = [
-  {
-    id: 1,
-    name: 'Lucas'
-  },
-  {
-    id: 2,
-    name: 'Lucas Vinicius'
-  },
-  {
-    id: 3,
-    name: 'Vinicius'
-  }
-];
-
 export const currentUserNameState = selector({
   key: 'CurrentUserName',
-  get: ({ get }) => {
-    return tableOfUsers[get(currentUserIDState)].name;
+  get: async ({ get }) => {
+    const response = await fetch('https://api.github.com/orgs/axios')
+      .then(response => response.json())
+      .then(data => data);
+    return response.login;
   }
 });
