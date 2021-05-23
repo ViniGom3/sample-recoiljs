@@ -4,8 +4,6 @@ import { useRecoilState } from 'recoil'
 import { todoListFilterState } from './atoms'
 
 export default function TodoListFilters() {
-    console.log('[%s ]{', todoListFilterState)
-
   const [filter, setFilter] = useRecoilState(todoListFilterState);
 
   const updateFilter = ({target: {value}}) => {
